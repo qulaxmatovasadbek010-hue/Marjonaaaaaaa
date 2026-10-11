@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gul Bog'i — qizlar uchun go'zal dunyo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fff6fa; --bg2:#fde4ef; --card:#ffffff; --text:#4a2a3b; --muted:#8d6679;
+  --pink:#f78fb3; --pink-d:#e0587f; --lav:#c9b6f2; --peach:#ffd3b8;
+  --shadow:0 12px 32px rgba(224,88,127,.15);
+  --serif:'Playfair Display',Georgia,serif; --sans:'Poppins',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#241522; --bg2:#33192f; --card:#3a2036; --text:#ffe9f2; --muted:#d3a9bd;
+    --shadow:0 12px 32px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#241522; --bg2:#33192f; --card:#3a2036; --text:#ffe9f2; --muted:#d3a9bd;
+  --shadow:0 12px 32px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-family:var(--serif);font-size:1.5rem;color:var(--pink-d)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.92rem}
+nav ul a:hover{color:var(--pink-d)}
+@media(max-width:600px){nav ul{display:none}}
+
+.hero{position:relative;text-align:center;padding:90px 0 110px;background:radial-gradient(circle at 20% 20%,var(--bg2),transparent 55%),radial-gradient(circle at 85% 70%,rgba(201,182,242,.35),transparent 50%)}
+.hero .tag{display:inline-block;background:var(--card);padding:6px 16px;border-radius:99px;font-size:.82rem;color:var(--pink-d);box-shadow:var(--shadow);margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.1;margin-bottom:18px}
+.hero h1 em{color:var(--pink-d);font-style:italic}
+.hero p{max-width:520px;margin:0 auto 32px;color:var(--muted);font-size:1.05rem}
+.btn{display:inline-block;padding:14px 32px;border-radius:99px;background:linear-gradient(135deg,var(--pink),var(--pink-d));color:#fff;font-weight:500;box-shadow:0 10px 24px rgba(224,88,127,.35);transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.ghost{background:transparent;color:var(--pink-d);box-shadow:none;border:2px solid var(--pink);margin-left:10px}
+.petal{position:absolute;font-size:2rem;opacity:.7;animation:float 7s ease-in-out infinite}
+.p1{left:8%;top:20%}.p2{right:10%;top:15%;animation-delay:1.5s}.p3{left:15%;bottom:12%;animation-delay:3s}.p4{right:18%;bottom:18%;animation-delay:2s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(12deg)}}
+@media(prefers-reduced-motion:reduce){.petal{animation:none}}
+
+section{padding:80px 0}
+h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);text-align:center;margin-bottom:10px}
+.sub{text-align:center;color:var(--muted);margin-bottom:46px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:var(--card);border-radius:24px;padding:30px 24px;box-shadow:var(--shadow);text-align:center;transition:transform .25s}
+.card:hover{transform:translateY(-8px)}
+.card .ic{width:68px;height:68px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;font-size:2rem;background:linear-gradient(135deg,var(--bg2),var(--lav))}
+.card h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.92rem}
+
+.tips{background:var(--bg2)}
+.tip-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.tip{background:var(--card);border-radius:20px;padding:22px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow)}
+.tip b{font-size:1.6rem;line-height:1}
+.tip h4{margin-bottom:4px}
+.tip p{color:var(--muted);font-size:.9rem}
+
+.quote{text-align:center;max-width:720px;margin:0 auto}
+.quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3.4vw,2.1rem);line-height:1.4}
+.quote cite{display:block;margin-top:16px;color:var(--pink-d);font-style:normal}
+
+.sub-box{background:linear-gradient(135deg,var(--pink),var(--lav));border-radius:32px;padding:50px 24px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+.sub-box h2{color:#fff}
+.sub-box p{margin-bottom:24px;opacity:.95}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.row input{padding:14px 20px;border-radius:99px;border:none;min-width:240px;font:inherit;outline:none}
+.row button{padding:14px 28px;border-radius:99px;border:none;background:#fff;color:var(--pink-d);font:inherit;font-weight:600;cursor:pointer}
+#msg{margin-top:14px;min-height:1.4em}
+
+footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">🌸 Gul Bog'i</a>
+    <ul>
+      <li><a href="#bolimlar">Bo'limlar</a></li>
+      <li><a href="#maslahat">Maslahatlar</a></li>
+      <li><a href="#obuna">Obuna</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="petal p1">🌷</span><span class="petal p2">✨</span><span class="petal p3">🦋</span><span class="petal p4">🌸</span>
+  <div class="wrap">
+    <span class="tag">💖 Qizlar uchun maxsus</span>
+    <h1>O'zingni sev,<br><em>porla</em> va ilhomlan</h1>
+    <p>Go'zallik, moda, kayfiyat va ijod — hammasi bir joyda. Sen uchun yaratilgan nozik va iliq dunyo.</p>
+    <a class="btn" href="#bolimlar">Boshlaymiz</a>
+    <a class="btn ghost" href="#obuna">Obuna bo'l</a>
+  </div>
+</header>
+
+<section id="bolimlar">
+  <div class="wrap">
+    <h2>Bizning bo'limlar</h2>
+    <p class="sub">Har bir kayfiyat uchun nimadir bor</p>
+    <div class="grid">
+      <div class="card"><div class="ic">💄</div><h3>Go'zallik</h3><p>Teri parvarishi, soch va makiyaj bo'yicha oddiy va foydali g'oyalar.</p></div>
+      <div class="card"><div class="ic">👗</div><h3>Moda</h3><p>Har kunlik va bayramona uslublar, ranglar uyg'unligi.</p></div>
+      <div class="card"><div class="ic">📖</div><h3>Kitoblar</h3><p>Ruhni boyitadigan asarlar va yoqimli o'qish daqiqalari.</p></div>
+      <div class="card"><div class="ic">🎨</div><h3>Ijod</h3><p>Rasm, daftar bezash, qo'l mehnati va ilhom lahzalari.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tips" id="maslahat">
+  <div class="wrap">
+    <h2>Kunlik kichik odatlar</h2>
+    <p class="sub">Kichik qadamlar — katta o'zgarish</p>
+    <div class="tip-list">
+      <div class="tip"><b>💧</b><div><h4>Ko'proq suv ich</h4><p>Teri va kayfiyat uchun eng oddiy sir.</p></div></div>
+      <div class="tip"><b>🌙</b><div><h4>Yaxshi uxla</h4><p>Go'zallik tongdagi dam olgan yuzdan boshlanadi.</p></div></div>
+      <div class="tip"><b>🌿</b><div><h4>Toza havoda yur</h4><p>Kuniga 20 daqiqa sayr ham yetarli.</p></div></div>
+      <div class="tip"><b>📝</b><div><h4>Kundalik yoz</h4><p>Fikrlaring va maqsadlaringni qog'ozga tushir.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap quote">
+    <blockquote>“Sen gul kabisan — o'z vaqtida, o'z go'zalligingda ochilasan.”</blockquote>
+    <cite>— Gul Bog'i</cite>
+  </div>
+</section>
+
+<section id="obuna">
+  <div class="wrap">
+    <div class="sub-box">
+      <h2>Yangiliklardan xabardor bo'l</h2>
+      <p>Har hafta ilhom beruvchi g'oyalar elektron pochtangga keladi 💌</p>
+      <div class="row">
+        <input id="em" type="email" placeholder="Email manzilingiz">
+        <button id="go">Obuna bo'lish</button>
+      </div>
+      <div id="msg"></div>
+    </div>
+  </div>
+</section>
+
+<footer>Mehr bilan yaratilgan 💗 · © Gul Bog'i</footer>
+
+<script>
+document.getElementById('go').addEventListener('click',function(){
+  var v=document.getElementById('em').value.trim(),m=document.getElementById('msg');
+  m.textContent=/^\S+@\S+\.\S+$/.test(v)?'Rahmat! Siz obuna bo\'ldingiz 🌸':'Iltimos, to\'g\'ri email kiriting.';
+});
+</script>
+</body>
+</html>
